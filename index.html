@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cool Places to eat!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+  <!-- search box -->
+  <div class="row">
+    <div class="col-md-12">
+      <input autocomplete="off" id="search-box" id="q" placeholder="Search for Restaurants by Name, Cuisine, Location" type="text"
+        spellcheck="false" />
+    </div>
+  </div>
+
+  <!-- main container -->
+  <div class="row col-md-12">
+
+
+
+    <!-- facets -->
+    <aside>
+      <div id="food-filter">
+        <h4>Cuisine/Food Type</h4>
+        <ul id="food-facet-list"></ul>
+      </div>
+      <div id="rating-filter">
+        <h4>Rating</h4>
+        <ul id="rating-facet-list"></ul>
+      </div>
+      <div id="payment-filter">
+        <h4>Payment Options</h4>
+        <ul id="payment-facet-list"></ul>
+      </div>
+    </aside>
+
+
+    <!-- listings -->
+    <div class="col-md-8">
+      <div class="hits-wrapper" id=container>
+        <div id="hits"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- JS libraries -->
+  <script src='https://cdn.jsdelivr.net/g/algoliasearch@3(algoliasearchLite.min.js),algoliasearch.helper@2'></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
+
+</body>
+
+</html>
