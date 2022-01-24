@@ -3,7 +3,7 @@
 var client  = algoliasearch('AI25093SE7', '56b53a13bd28f8cb3e324db8a226cb17');
 // Algolia Helper
 var helper = algoliasearchHelper(client, 'Restaurant_Index', {
-  facets: ['payment_options'],
+  facets: ['payment_options', 'stars_count', 'food_type'],
   hitsPerPage: 15,
   maxValuesPerFacet: 5,
   getRankingInfo: true
@@ -38,7 +38,7 @@ function searchCallback(content) {
 
   // Hits/results rendering
   renderHits($hits, content);
-  renderPaymentFacet($facets, results);
+  //renderPaymentFacet($facets, results);
   //renderFacets($facets, results);
 }
 
@@ -66,23 +66,6 @@ function renderHits($hits, results) {
 function renderFacets($facets, results) {
   var facets = results.facets.map(function (facet) {
     var name = facet.name;
-    var header = '<h4>' + upper(name) + '</h4>';
-    var facetValues = results.getFacetValues(name);
-    var facetsValuesList = $.map(facetValues, function (facetValue) {
-      var facetValueClass = facetValue.isRefined ? 'refined' : '';
-      var valueAndCount = '<a data-attribute="' + name + '" data-value="' + facetValue.name + '" href="#">' + facetValue.name + ' (' + facetValue.count + ')' + '</a>';
-      return '<li class="' + facetValueClass + '">' + valueAndCount + '</li>';
-    })
-    return header + '<ul>' + facetsValuesList.join('') + '</ul>';
-  });
-
-  $facets.html(facets.join(''));
-}
-
-function renderPaymentFacet($facets, results) {
-  var facets = results.facets.map(function (facet) {
-    //var name = facet.name;
-    var name = any.getFacetValues('payment_options');
     var header = '<h4>' + upper(name) + '</h4>';
     var facetValues = results.getFacetValues(name);
     var facetsValuesList = $.map(facetValues, function (facetValue) {
